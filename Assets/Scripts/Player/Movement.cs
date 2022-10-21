@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private Animator _animator;
 
+    private const string _runParameterName = "Run";
     private Rigidbody2D _rigidbody2D;
     private float _horizontalInputValue = 0f;
     private bool _isGrounded = false;
@@ -22,7 +23,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         _horizontalInputValue = Input.GetAxis("Horizontal");
-        _animator.SetFloat("Run", Mathf.Abs(_horizontalInputValue));
+        _animator.SetFloat(_runParameterName, Mathf.Abs(_horizontalInputValue));
 
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             _isJumped = true;
